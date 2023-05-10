@@ -9,4 +9,4 @@ RUN go build -o test-api
 
 EXPOSE 8080
 
-CMD ["./main"]
+CMD ["TEST"]
