@@ -20,12 +20,6 @@ jobs:
       uses: actions/setup-go@v3
       with:
         go-version: 1.19
-    
-    - name: Load environment file
-      run: |
-        set -a
-        . env-file.env
-        set +a
 
     - name: Build
       run: go build -v ./...
