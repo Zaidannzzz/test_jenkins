@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN go build -o /test
+RUN go build -o /test/backend
 
 EXPOSE 8080
 
