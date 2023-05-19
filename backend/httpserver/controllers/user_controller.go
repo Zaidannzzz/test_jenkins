@@ -16,6 +16,7 @@ import (
 type UserController interface {
 	Register(ctx *gin.Context)
 	Login(ctx *gin.Context)
+	GetUsers(ctx *gin.Context)
 	UpdateUser(ctx *gin.Context)
 	DeleteUser(ctx *gin.Context)
 }
@@ -41,11 +42,7 @@ func NewUserController(
 //	@Failure	500		{object}	utils.HttpError
 //	@Router		/user/register [post]
 func (c *userController) Register(ctx *gin.Context) {
-	var dto dto.RegisterUserDto
-
-	if dto.Role == "" {
-		dto.Role = "member"
-	}
+	var dto dto.RegisterDto
 
 	err := ctx.BindJSON(&dto)
 	if err != nil {
@@ -53,7 +50,7 @@ func (c *userController) Register(ctx *gin.Context) {
 		return
 	}
 
-	_, err = c.userService.RegisterUser(&dto)
+	_, err = c.userService.Register(&dto)
 
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, utils.NewHttpError("Internal Server Error", err.Error()))
@@ -104,6 +101,26 @@ func (c *userController) Login(ctx *gin.Context) {
 		AccessToken:  accessToken,
 		RefreshToken: refreshToken,
 	}))
+}
+
+// GetUsers godoc
+// @Tags     User
+// @Summary  get mutilple users
+// @Success  200 {object} utils.HttpSuccess[[]models.UserModel]
+// @Failure  401 {object} utils.HttpError
+// @Failure  400 {object} utils.HttpError
+// @Failure  500 {object} utils.HttpError
+// @Router   /user [get]
+// @Security BearerAuth
+func (c *userController) GetUsers(ctx *gin.Context) {
+	users, err := c.userService.GetUsers()
+
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, utils.NewHttpError("Internal Server Error", err.Error()))
+		return
+	}
+
+	ctx.JSON(http.StatusOK, utils.NewHttpSuccess("Get All Success", users))
 }
 
 // UpdateUser godoc

@@ -10,6 +10,7 @@ import (
 type UserRepository interface {
 	Register(user *models.UserModel) (*models.UserModel, error)
 	Login(user *models.UserModel) (*models.UserModel, error)
+	GetUsers() (*[]models.UserModel, error)
 	UpdateUser(user *models.UserModel) (*models.UserModel, error)
 	DeleteUser(user *models.UserModel) (*models.UserModel, error)
 }
@@ -48,6 +49,17 @@ func (r *userRepository) Login(user *models.UserModel) (*models.UserModel, error
 	}
 
 	return user, nil
+}
+
+func (r *userRepository) GetUsers() (*[]models.UserModel, error) {
+	var users []models.UserModel
+	err := r.db.Preload(clause.Associations).Find(&users).Limit(10).Error
+
+	if err != nil {
+		return &users, err
+	}
+
+	return &users, nil
 }
 
 func (r *userRepository) UpdateUser(user *models.UserModel) (*models.UserModel, error) {

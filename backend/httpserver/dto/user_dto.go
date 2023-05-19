@@ -4,11 +4,10 @@ type UpdateTodoDto struct {
 	Status bool `json:"status" binding:"required"`
 }
 
-type RegisterUserDto struct {
+type RegisterDto struct {
 	Full_name string `json:"full_name" binding:"required"`
 	Email     string `json:"email" binding:"required"`
 	Password  string `json:"password" binding:"required"`
-	Role      string `json:"role"`
 }
 
 type UpsertUserDto struct {

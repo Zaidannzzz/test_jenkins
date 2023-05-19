@@ -5,7 +5,6 @@ type UserModel struct {
 	Full_name string `json:"full_name"`
 	Email     string `gorm:"uniqueIndex" json:"email"`
 	Password  string `json:"password"`
-	Role      string `json:"role"`
 }
 
 func (UserModel) TableName() string {

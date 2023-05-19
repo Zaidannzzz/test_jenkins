@@ -13,6 +13,7 @@ func UserRouter(route *gin.RouterGroup, userController controllers.UserControlle
 	{
 		userRouter.POST("register", userController.Register)
 		userRouter.POST("login", userController.Login)
+		userRouter.GET("", middleware.JwtGuard(authService), userController.GetUsers)
 		userRouter.PUT("update-account", middleware.JwtGuard(authService), userController.UpdateUser)
 		userRouter.DELETE("delete-account", middleware.JwtGuard(authService), userController.DeleteUser)
 	}

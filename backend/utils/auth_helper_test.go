@@ -27,7 +27,6 @@ func TestGenerateToken(t *testing.T) {
 		Full_name: "test",
 		Email:     "test@email.com",
 		Password:  "123qweasd",
-		Role:      "admin",
 	}
 
 	accessToken, refreshToken, err := helper.GenerateToken(&user)
