@@ -6,7 +6,7 @@ services:
       ports:
         - 5432:5432
       environment:
-        - PGHOST=localhost
+        - PGHOST=postgres
         - PGUSER=postgres
         - PGPASSWORD=Samsunggalaxyy1
         - PGPORT=5432      
@@ -16,7 +16,7 @@ services:
     test-backend:
       build: ./backend
       environment:
-        - PGHOST=localhost
+        - PGHOST=postgres
         - PGUSER=postgres
         - PGPASSWORD=Samsunggalaxyy1
         - PGPORT=5432      
