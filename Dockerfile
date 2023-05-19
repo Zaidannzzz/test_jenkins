@@ -8,4 +8,4 @@ RUN go build -o /test
 
 EXPOSE 8080
 
-CMD ["/"]
+CMD ["/test"]

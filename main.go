@@ -46,5 +46,5 @@ func main() {
 
 	routers.UserRouter(appRoute, userController, authService)
 
-	app.Run(":8080")
+	app.Run()
 }
