@@ -1,25 +1,26 @@
 version: '3'
 services:
-  app:
-    test-postgres:
-      image: postgres:latest
-      ports:
-        - 5432:5432
-      environment:
-        - PGHOST=postgres
-        - PGUSER=postgres
-        - PGPASSWORD=Samsunggalaxyy1
-        - PGPORT=5432      
-        - PGDATABASE=test
-      volumes:
-        - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
-    test-backend:
-      build: ./backend
-      environment:
-        - PGHOST=postgres
-        - PGUSER=postgres
-        - PGPASSWORD=Samsunggalaxyy1
-        - PGPORT=5432      
-        - PGDATABASE=test
-      depends_on:
-        - test-postgres
+  test-postgres:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      - PGHOST=postgres
+      - PGUSER=postgres
+      - PGPASSWORD=Samsunggalaxyy1
+      - PGPORT=5432      
+      - PGDATABASE=test
+    volumes:
+      - ./test-postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+  test-backend:
+    build: ./backend
+    ports:
+    - 8080:8080
+    environment:
+      - PGHOST=postgres
+      - PGUSER=postgres
+      - PGPASSWORD=Samsunggalaxyy1
+      - PGPORT=5432      
+      - PGDATABASE=test
+    depends_on:
+      - test-postgres
