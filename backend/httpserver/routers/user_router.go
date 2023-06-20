@@ -1,9 +1,9 @@
 package routers
 
 import (
-	controllers "test/backend/httpserver/controllers"
-	"test/backend/httpserver/middleware"
-	"test/backend/utils"
+	controllers "backend/httpserver/controllers"
+	"backend/httpserver/middleware"
+	"backend/utils"
 
 	"github.com/gin-gonic/gin"
 )

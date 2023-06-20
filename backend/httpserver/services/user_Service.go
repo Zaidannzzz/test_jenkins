@@ -1,9 +1,9 @@
 package services
 
 import (
-	"test/backend/httpserver/dto"
-	"test/backend/httpserver/models"
-	"test/backend/httpserver/repositories"
+	"backend/httpserver/dto"
+	"backend/httpserver/models"
+	"backend/httpserver/repositories"
 
 	"golang.org/x/crypto/bcrypt"
 )

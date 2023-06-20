@@ -1,25 +1,38 @@
 package config
 
 import (
-	"fmt"
+	"backend/httpserver/models"
 	"os"
-	"test/backend/httpserver/models"
+
+	"time"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-	"gorm.io/gorm/logger"
 )
 
 func Connect() (*gorm.DB, error) {
-	dbCredential := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Asia/Jakarta", os.Getenv("PGHOST"), os.Getenv("PGUSER"), os.Getenv("PGPASSWORD"), os.Getenv("PGDATABASE"), os.Getenv("PGPORT"))
+	dsn := "host=" + os.Getenv("PGHOST") +
+		" user=" + os.Getenv("PGUSER") +
+		" password=" + os.Getenv("PGPASSWORD") +
+		" dbname=" + os.Getenv("PGDATABASE") +
+		" port=" + os.Getenv("PGPORT") +
+		" sslmode=disable TimeZone=Asia/Jakarta"
 
-	db, err := gorm.Open(postgres.Open(dbCredential), &gorm.Config{
-		Logger: logger.Default.LogMode(logger.Info),
-	})
+	var db *gorm.DB
+	var err error
+
+	for i := 0; i < 3; i++ {
+		db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+		if err == nil {
+			break
+		}
+		time.Sleep(time.Second * 5) // Tunggu 5 detik sebelum mencoba lagi
+	}
 
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
+
 	db.AutoMigrate(&models.UserModel{})
 	return db, err
 }
