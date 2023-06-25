@@ -3,7 +3,8 @@ package config
 import (
 	"fmt"
 	"os"
-	"test/backend/httpserver/models"
+
+	"github.com/Zaidannzzz/test/backend/httpserver/models"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

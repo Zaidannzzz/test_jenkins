@@ -1,4 +1,4 @@
-module test/backend
+module github.com/Zaidannzzz/test/backend
 
 go 1.18
 

@@ -1,8 +1,9 @@
 package utils_test
 
 import (
-	"test/backend/utils"
 	"testing"
+
+	"github.com/Zaidannzzz/test/backend/utils"
 
 	"github.com/stretchr/testify/assert"
 )

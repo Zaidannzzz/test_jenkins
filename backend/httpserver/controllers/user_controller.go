@@ -4,10 +4,11 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
-	"test/backend/httpserver/dto"
-	"test/backend/httpserver/models"
-	"test/backend/httpserver/services"
-	"test/backend/utils"
+
+	"github.com/Zaidannzzz/test/backend/httpserver/dto"
+	"github.com/Zaidannzzz/test/backend/httpserver/models"
+	"github.com/Zaidannzzz/test/backend/httpserver/services"
+	"github.com/Zaidannzzz/test/backend/utils"
 
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
