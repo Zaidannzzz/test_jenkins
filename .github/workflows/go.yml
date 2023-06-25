@@ -24,9 +24,11 @@ jobs:
         go-version: 1.18.3
 
     - name: Build
+      working-directory: ./backend
       run: go build -v ./..
 
     - name: Test
+      working-directory: ./backend
       run: go test -v ./..
 
   deploy:
@@ -45,6 +47,6 @@ jobs:
       - name: Build and push Docker Image
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: ./backend
           push: true
           tags: zaidanzulhakim/test:latest
