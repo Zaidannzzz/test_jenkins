@@ -23,10 +23,6 @@ jobs:
       with:
         go-version: 1.18.3
 
-    - name: Set up PostgreSQL
-      run: |
-        docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=Samsunggalaxyy1 -d test-postgres-1
-
     - name: Build
       run: go build -o main .
 
