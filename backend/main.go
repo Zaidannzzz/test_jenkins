@@ -1,13 +1,13 @@
 package main
 
 import (
-	"backend/config"
-	"backend/httpserver/controllers"
-	"backend/httpserver/repositories"
-	"backend/httpserver/routers"
-	"backend/httpserver/services"
-	"backend/utils"
 	"log"
+	"test/backend/config"
+	"test/backend/httpserver/controllers"
+	"test/backend/httpserver/repositories"
+	"test/backend/httpserver/routers"
+	"test/backend/httpserver/services"
+	"test/backend/utils"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -26,16 +26,16 @@ import (
 // @in                         header
 // @name                       Authorization
 func main() {
-	err := godotenv.Load(".env")
+	// Load environment variables from .env file
+	err := godotenv.Load()
 	if err != nil {
-		log.Fatal("Environment Variables not found")
+		log.Fatalf("Failed to load .env file: %v", err)
 	}
 
 	gin.SetMode(gin.ReleaseMode)
 
 	app := gin.Default()
 	appRoute := app.Group("/api")
-
 	db, err := config.Connect()
 	if err != nil {
 		log.Fatal("Failed to connect to the database")
@@ -49,7 +49,7 @@ func main() {
 
 	routers.UserRouter(appRoute, userController, authService)
 
-	err = app.Run()
+	err = app.Run(":8080")
 	if err != nil {
 		log.Fatal("Failed to start the server")
 	}

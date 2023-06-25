@@ -1,7 +1,7 @@
 package utils_test
 
 import (
-	"backend/utils"
+	"test/backend/utils"
 	"testing"
 
 	"github.com/stretchr/testify/assert"

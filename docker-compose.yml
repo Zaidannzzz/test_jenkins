@@ -1,16 +1,13 @@
 version: '3'
 services:
   postgres:
-    image: postgres:latest
+    image: postgres
     ports:
       - 5432:5432
     environment:
       - POSTGRES_PASSWORD=Samsunggalaxyy1
-      - PGHOST=postgres
-      - PGUSER=postgres
-      - PGPASSWORD=Samsunggalaxyy1
-      - PGPORT=5432
-      - PGDATABASE=testpostgre
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=testpostgre
     volumes:
       - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
   backend:
@@ -18,10 +15,10 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     environment:
-      - PGHOST=postgres
-      - PGUSER=postgres
-      - PGPASSWORD=Samsunggalaxyy1
-      - PGPORT=5432
-      - PGDATABASE=testpostgre
+      - POSTGRES_HOST=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Samsunggalaxyy1
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=testpostgre
     depends_on:
       - postgres

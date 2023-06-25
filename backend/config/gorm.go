@@ -1,38 +1,51 @@
 package config
 
 import (
-	"backend/httpserver/models"
+	"fmt"
 	"os"
-
-	"time"
+	"test/backend/httpserver/models"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 func Connect() (*gorm.DB, error) {
-	dsn := "host=" + os.Getenv("PGHOST") +
-		" user=" + os.Getenv("PGUSER") +
-		" password=" + os.Getenv("PGPASSWORD") +
-		" dbname=" + os.Getenv("PGDATABASE") +
-		" port=" + os.Getenv("PGPORT") +
-		" sslmode=disable TimeZone=Asia/Jakarta"
+	// Get the database connection details from environment variables
+	dbHost := os.Getenv("POSTGRES_HOST")
+	dbPort := os.Getenv("POSTGRES_PORT")
+	dbUser := os.Getenv("POSTGRES_USER")
+	dbPassword := os.Getenv("POSTGRES_PASSWORD")
+	dbName := os.Getenv("POSTGRES_DB")
 
-	var db *gorm.DB
-	var err error
+	// Construct the DSN string
+	dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", dbHost, dbPort, dbUser, dbPassword, dbName)
 
-	for i := 0; i < 3; i++ {
-		db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
-		if err == nil {
-			break
-		}
-		time.Sleep(time.Second * 5) // Tunggu 5 detik sebelum mencoba lagi
-	}
-
+	// Connect to the database
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		return nil, err
 	}
 
-	db.AutoMigrate(&models.UserModel{})
-	return db, err
+	// Perform database migrations or other setup tasks here
+	err = runMigrations(db)
+	if err != nil {
+		return nil, err
+	}
+
+	fmt.Println("Connected to the database")
+
+	return db, nil
+}
+
+func runMigrations(db *gorm.DB) error {
+	err := db.AutoMigrate(&models.UserModel{})
+	if err != nil {
+		return err
+	}
+
+	// Additional migrations and setup tasks can be added here
+
+	fmt.Println("Database migrations completed")
+
+	return nil
 }

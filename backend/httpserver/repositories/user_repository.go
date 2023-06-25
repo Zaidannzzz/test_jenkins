@@ -1,7 +1,7 @@
 package repositories
 
 import (
-	"backend/httpserver/models"
+	"test/backend/httpserver/models"
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"

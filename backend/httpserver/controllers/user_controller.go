@@ -1,13 +1,13 @@
 package controllers
 
 import (
-	"backend/httpserver/dto"
-	"backend/httpserver/models"
-	"backend/httpserver/services"
-	"backend/utils"
 	"errors"
 	"fmt"
 	"net/http"
+	"test/backend/httpserver/dto"
+	"test/backend/httpserver/models"
+	"test/backend/httpserver/services"
+	"test/backend/utils"
 
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"

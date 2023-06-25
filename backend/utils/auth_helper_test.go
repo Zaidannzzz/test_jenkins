@@ -1,8 +1,8 @@
 package utils_test
 
 import (
-	"backend/httpserver/models"
-	"backend/utils"
+	"test/backend/httpserver/models"
+	"test/backend/utils"
 	"testing"
 
 	"github.com/golang-jwt/jwt"
