@@ -5,7 +5,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/Zaidannzzz/test/backend/httpserver/models"
+	"test/backend/httpserver/models"
 
 	"github.com/golang-jwt/jwt"
 )

@@ -3,8 +3,8 @@ package utils_test
 import (
 	"testing"
 
-	"github.com/Zaidannzzz/test/backend/httpserver/models"
-	utils "github.com/Zaidannzzz/test/backend/utils"
+	"test/backend/httpserver/models"
+	utils "test/backend/utils"
 
 	"github.com/golang-jwt/jwt"
 	"github.com/stretchr/testify/assert"

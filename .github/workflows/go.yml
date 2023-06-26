@@ -23,14 +23,11 @@ jobs:
       with:
         go-version: 1.18.3
 
-    - name: Navigate to directory
-      run: cd /home/runner/work/test
-
     - name: Build
-      run: go build -v ./..
+      run: go build -v .
 
     - name: Test
-      run: go test -v ./..
+      run: go test -v .
 
   deploy:
     needs: build

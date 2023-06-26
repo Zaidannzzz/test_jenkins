@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Zaidannzzz/test/backend/httpserver/models"
+	"test/backend/httpserver/models"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

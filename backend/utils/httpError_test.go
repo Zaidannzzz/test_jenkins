@@ -3,7 +3,7 @@ package utils_test
 import (
 	"testing"
 
-	utils "github.com/Zaidannzzz/test/backend/utils"
+	utils "test/backend/utils"
 
 	"github.com/stretchr/testify/assert"
 )

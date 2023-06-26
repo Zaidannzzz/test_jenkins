@@ -1,7 +1,7 @@
 package repositories
 
 import (
-	"github.com/Zaidannzzz/test/backend/httpserver/models"
+	"test/backend/httpserver/models"
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"

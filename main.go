@@ -3,12 +3,12 @@ package main
 import (
 	"log"
 
-	"github.com/Zaidannzzz/test/backend/config"
-	"github.com/Zaidannzzz/test/backend/httpserver/controllers"
-	"github.com/Zaidannzzz/test/backend/httpserver/repositories"
-	"github.com/Zaidannzzz/test/backend/httpserver/routers"
-	"github.com/Zaidannzzz/test/backend/httpserver/services"
-	"github.com/Zaidannzzz/test/backend/utils"
+	"test/backend/config"
+	"test/backend/httpserver/controllers"
+	"test/backend/httpserver/repositories"
+	"test/backend/httpserver/routers"
+	"test/backend/httpserver/services"
+	"test/backend/utils"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
