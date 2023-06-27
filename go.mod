@@ -1,4 +1,4 @@
-module test/backend
+module test
 
 go 1.18
 
