@@ -48,3 +48,7 @@ jobs:
           context: .
           push: true
           tags: zaidanzulhakim/test:latest
+      
+      - name: Run Docker Compose
+        run: |
+          docker-compose up --build
