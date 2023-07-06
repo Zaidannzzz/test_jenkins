@@ -1,7 +1,7 @@
 package repositories
 
 import (
-	"test/backend/httpserver/models"
+	"test_jenkins/backend/httpserver/models"
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"

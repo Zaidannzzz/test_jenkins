@@ -3,12 +3,12 @@ package main
 import (
 	"log"
 
-	"test/backend/config"
-	"test/backend/httpserver/controllers"
-	"test/backend/httpserver/repositories"
-	"test/backend/httpserver/routers"
-	"test/backend/httpserver/services"
-	"test/backend/utils"
+	"test_jenkins/backend/config"
+	"test_jenkins/backend/httpserver/controllers"
+	"test_jenkins/backend/httpserver/repositories"
+	"test_jenkins/backend/httpserver/routers"
+	"test_jenkins/backend/httpserver/services"
+	"test_jenkins/backend/utils"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"

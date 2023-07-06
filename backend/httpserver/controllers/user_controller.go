@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"net/http"
 
-	"test/backend/httpserver/dto"
-	"test/backend/httpserver/models"
-	"test/backend/httpserver/services"
-	"test/backend/utils"
+	"test_jenkins/backend/httpserver/dto"
+	"test_jenkins/backend/httpserver/models"
+	"test_jenkins/backend/httpserver/services"
+	"test_jenkins/backend/utils"
 
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"

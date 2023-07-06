@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"test/backend/httpserver/models"
+	"test_jenkins/backend/httpserver/models"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

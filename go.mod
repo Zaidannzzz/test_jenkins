@@ -1,4 +1,4 @@
-module test
+module test_jenkins
 
 go 1.18
 

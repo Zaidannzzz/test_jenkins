@@ -1,5 +1,5 @@
-SELECT 'CREATE DATABASE testpostgre' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'testpostgre');
-\c testpostgre;
+SELECT 'CREATE DATABASE testpostgrejenkins' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'testpostgrejenkins');
+\c testpostgrejenkins;
 CREATE SEQUENCE User_id_seq START 1;
 CREATE TABLE "User" (
     id bigint DEFAULT nextval('User_id_seq'),

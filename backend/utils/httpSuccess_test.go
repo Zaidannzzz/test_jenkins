@@ -3,7 +3,7 @@ package utils_test
 import (
 	"testing"
 
-	"test/backend/utils"
+	"test_jenkins/backend/utils"
 
 	"github.com/stretchr/testify/assert"
 )
