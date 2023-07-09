@@ -3,7 +3,7 @@ services:
   postgres:
     image: postgres
     ports:
-      - 5433:5432
+      - 5432:5432
     environment:
       - POSTGRES_PASSWORD=Samsunggalaxyy1
       - POSTGRES_USER=postgres
@@ -12,15 +12,15 @@ services:
       - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
   backend:
     build: 
-      context: ./backend
+      context: .
       dockerfile: Dockerfile
     ports:
-    - 8080:8080
+    - 8000:8000
     environment:
       - POSTGRES_HOST=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=Samsunggalaxyy1
-      - POSTGRES_PORT=5433
+      - POSTGRES_PORT=5432
       - POSTGRES_DB=testpostgrejenkins
     depends_on:
       - postgres
